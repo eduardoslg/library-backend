@@ -11,10 +11,6 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.eduardoslg.library.dtos.users.UserRequestDTO;
 import com.eduardoslg.library.dtos.users.UserResponseDTO;
-import com.eduardoslg.library.dtos.users.UserSessionDTO;
-import com.eduardoslg.library.dtos.users.UserSessionResponseDTO;
-import com.eduardoslg.library.entities.User;
-import com.eduardoslg.library.usecases.user.AuthenticateUserUseCase;
 import com.eduardoslg.library.usecases.user.CreateUserUseCase;
 import com.eduardoslg.library.usecases.user.ListUsersUseCase;
 
@@ -27,7 +23,6 @@ import lombok.RequiredArgsConstructor;
 public class UserController {
     private final CreateUserUseCase createUserUseCase;
     private final ListUsersUseCase listUsersUseCase;
-    private final AuthenticateUserUseCase authenticateUserUseCase;
 
     @PostMapping
     public ResponseEntity<?> create(@RequestBody @Valid UserRequestDTO dto) {
@@ -35,7 +30,7 @@ public class UserController {
         return ResponseEntity.ok(user);
     }
 
-    @GetMapping
+    @GetMapping("/list/table")
     public ResponseEntity<List<UserResponseDTO>> list() {
         return ResponseEntity.ok(
             listUsersUseCase.execute().stream()
@@ -43,12 +38,4 @@ public class UserController {
             .toList()
     );
     }
-
-    @PostMapping("/session")
-    public ResponseEntity<?> session(@RequestBody @Valid UserSessionDTO dto) {
-        UserSessionResponseDTO user = authenticateUserUseCase.execute(dto);
-        
-        return ResponseEntity.ok(user);
-    }
-    
 }

@@ -4,8 +4,8 @@ import java.util.Optional;
 
 import org.springframework.stereotype.Component;
 
+import com.eduardoslg.library.dtos.session.UserSessionResponseDTO;
 import com.eduardoslg.library.dtos.users.UserSessionDTO;
-import com.eduardoslg.library.dtos.users.UserSessionResponseDTO;
 import com.eduardoslg.library.entities.User;
 import com.eduardoslg.library.errors.AppError;
 import com.eduardoslg.library.repositories.UserRepository;
