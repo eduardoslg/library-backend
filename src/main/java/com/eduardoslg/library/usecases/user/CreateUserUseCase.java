@@ -32,6 +32,8 @@ public class CreateUserUseCase {
     user.setName(dto.getName());
     user.setEmail(dto.getEmail());
     user.setPassword(passwordHash);
+
+    userRepository.save(user);
     return new UserResponseDTO(user.getId(), user.getName(), user.getEmail());
   }
 }

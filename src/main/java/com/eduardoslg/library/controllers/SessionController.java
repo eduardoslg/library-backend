@@ -6,9 +6,9 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
+import com.eduardoslg.library.dtos.session.UserSessionDTO;
 import com.eduardoslg.library.dtos.session.UserSessionResponseDTO;
-import com.eduardoslg.library.dtos.users.UserSessionDTO;
-import com.eduardoslg.library.usecases.user.AuthenticateUserUseCase;
+import com.eduardoslg.library.usecases.session.AuthenticateUserUseCase;
 
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;

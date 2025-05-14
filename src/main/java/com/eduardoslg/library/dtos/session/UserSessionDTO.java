@@ -1,4 +1,4 @@
-package com.eduardoslg.library.dtos.users;
+package com.eduardoslg.library.dtos.session;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
